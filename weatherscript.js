@@ -5,9 +5,9 @@ const searchForm = document.querySelector('.formInput');
 const searchInput = document.querySelector('.input');
 const searchButton = document.querySelector('.button');
 const tempValue = document.querySelector('.temp_value');
-const tempDesc = document.querySelector('.trempDesc');
-const state = document.querySelector('.state');
-const speed = document.querySelector('.speed')
+const tempDesc = document.querySelector('.tempDesc');
+const stateVal = document.querySelector('.state');
+const speedVal = document.querySelector('.speed');
 const weatherImages = document.querySelectorAll('.weather_image')
 
 searchForm.addEventListener('submit', (e)=> {
@@ -24,6 +24,7 @@ searchForm.addEventListener('submit', (e)=> {
 async function getWeather(state){
     console.log('we got')
     try{
+        searchInput.value = " "
         //debugger
         const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${state}&APPID=461f6df9424738ff257dd3ab2acbc1e1`)
         //console.log('we are here)
@@ -41,7 +42,7 @@ async function getWeather(state){
             console.log(temp)
 
             //get speed data from json
-            const speed = data.weather[0].wind.speed
+            // const speed = data.weather[0].wind.speed
 
             //get description from json
             const description = data.weather[0].description
@@ -49,18 +50,26 @@ async function getWeather(state){
             //get weather icon from json data
             const icon = data.weather[0].icon
 
+
+            const stateValue = data.name
+
+            const speedValue = data.wind.speed
             //Use a forEach to assign src attribute for image DOM
             weatherImages.forEach((img) =>{
                 img.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`);
             })
 
             //Change the value of dummy temp value to json data value
-            tempValue.innerHTML = temp
-
+            //tempValue.innerHTML = ((temp - 32) * (5/9)) + 'C'
+            tempValue.innerHTML = (temp -273.15).toFixed(2) + 'C'
             //change the value of dummy description to json data value
             tempDesc.innerHTML = description
 
-            //change dummy state text to jso data value\
+
+            stateVal.innerHTML = stateValue
+
+            speedVal.innerHTML = speedValue
+            //change dummy state text to json data value\
             //state.innerHTML = names
 
             console.log('we got here too')
@@ -74,11 +83,12 @@ async function getWeather(state){
             // for (let i = 0; i < weatherImages.length; i++){
             //     img.setAttribute("src", `http://openweathermap.org/img/wn/${(icon)}@2x.png`);
             // }
+            
 
         }
     }
     catch(e){
-        console.log(e.value)
+        console.log(e)
     }
 }
 

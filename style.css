@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: poppins, sans-serif;
 }
 
 body{
@@ -68,14 +69,24 @@ main{
 
 h4 {
     color: white;
+    font-weight: 400;
    
 }
 .h41{
     padding-top: 12px;
 }
 
+h4 > span{
+    color: #FF9800;
+    font-style: italic;
+}
 .temp_disc_container{
     width: 90%;
+}
+.tempDesc{
+    color: #FF9800;
+    font-style: italic;
+    font-size: 12px;
 }
 .temp_image{
     width: 40px;
