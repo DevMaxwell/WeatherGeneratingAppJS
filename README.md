@@ -8,5 +8,5 @@ Get name input from user using form and run api request using ASYNC function  to
 https://devmaxwell-weathergeneratinapp.netlify.app/
 
 <strong>Developer</strong>
-Developed by me DevMaxwell
+Developed by DevMaxwell
 
