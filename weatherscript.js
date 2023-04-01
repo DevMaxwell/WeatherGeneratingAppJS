@@ -26,7 +26,7 @@ async function getWeather(state){
     try{
         searchInput.value = " "
         //debugger
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${state}&APPID=461f6df9424738ff257dd3ab2acbc1e1`)
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${state}&APPID=461f6df9424738ff257dd3ab2acbc1e1`)
         //console.log('we are here)
         if(response.ok){
             //console.log(response.json())
