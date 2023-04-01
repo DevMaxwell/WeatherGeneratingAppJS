@@ -1,4 +1,4 @@
-//icon url = http://openweathermap.org/img/wn/{code)@2x,png
+//icon url = https://openweathermap.org/img/wn/{code)@2x,png
 //http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=461f6df9424738ff257dd3ab2acbc1e1
 
 const searchForm = document.querySelector('.formInput');
@@ -85,6 +85,9 @@ async function getWeather(state){
             // }
             
 
+        }
+        else{
+            alert("Something Went Wrong")
         }
     }
     catch(e){
